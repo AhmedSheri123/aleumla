@@ -1,0 +1,613 @@
+{% extends 'base.html' %}
+
+{% block sheri %}
+{%block style%}
+<style>
+.card-width {
+  width:80%;
+}
+.card-width2 {
+  width:50%;
+}
+footer{
+  font-size:15px
+}
+@media only screen and (max-width: 980px) {
+  .card-width {
+    width:100%;
+    
+  }
+  .card-width2 {
+    width:70%;
+    
+  }
+}
+
+
+</style>
+{%endblock%}
+<div style="vertical-align: top; position:relative; display: inline-block; width:100%; min-height:110px; background:none; " id="container_7b65bfd9">
+  <div style="margin: 10px; display: block; " id="container_7b65bfd9_padding" >
+    <div style="text-align:center;">
+      <div style="vertical-align: top; position:relative; display: inline-block; margin:30px 0px 0px 0px;width:100%; min-height:55px; background:none; " id="container_6a4e7890">
+        <div style="margin: 10px; display: block; " id="container_6a4e7890_padding" >
+          <div style="text-align:center;">
+            <span style="font-size:20pt; font-family:Arial, Helvetica, sans-serif; color:#222222; font-weight:bold; ">الدولار</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div style="clear:both"></div>
+    </div>
+  </div>
+
+
+
+<div  style="vertical-align: top; position:relative; display: inline-block; width:100%; background:none; " id="container_39e796ac">
+  <div style="margin: 10px; display: block; " id="container_39e796ac_padding" >
+    <div style="text-align:center;">
+      <div class="card-width" style="vertical-align: top; position:relative; display: inline-block;   background:none; " id="container_3fd19a42">
+        <div style="margin: 10px; display: block; " id="container_3fd19a42_padding" >
+          <div style="text-align:center;">
+
+
+
+
+<div style="width:100%;">
+<canvas id="myChart"></canvas>
+</div>
+
+
+
+
+              
+            </div>
+          <div style="clear:both"></div>
+          </div>
+        </div>
+      </div>
+    <div style="clear:both"></div>
+    </div>
+  </div>
+
+
+
+
+
+
+<script>
+var ctx = document.getElementById('myChart');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [{% for dol in dols %}{% for det in dets %}{% if det.materials == dol.materials and det.city == dol.city %}"{{dol.publish_date|date:"Y-m-d"}} || {{dol.whenpublished}}",{% endif %}{% endfor %}{% endfor %}],
+        datasets: [{
+            label: 'دولار',
+            data: [{% for dol in dols %}{% for det in dets %}{% if det.materials == dol.materials and det.city == dol.city %}"{{dol.sell}}",{% endif %}{% endfor %}{% endfor %}],
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.2,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+</script>
+
+
+
+
+
+
+
+
+<div style="vertical-align: top; position:relative; display: inline-block; width:100%; min-height:110px; background:none; " id="container_7b65bfd9">
+  <div style="margin: 10px; display: block; " id="container_7b65bfd9_padding" >
+    <div style="text-align:center;">
+      <div style="vertical-align: top; position:relative; display: inline-block; margin:30px 0px 0px 0px;width:100%; min-height:55px; background:none; " id="container_6a4e7890">
+        <div style="margin: 10px; display: block; " id="container_6a4e7890_padding" >
+          <div style="text-align:center;">
+            <span style="font-size:20pt; font-family:Arial, Helvetica, sans-serif; color:#222222; font-weight:bold; ">يورو</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div style="clear:both"></div>
+    </div>
+  </div>
+
+
+
+<div style="vertical-align: top; position:relative; display: inline-block; width:100%; min-height:150px; background:none; " id="container_39e796ac">
+  <div style="margin: 10px; display: block; " id="container_39e796ac_padding" >
+    <div style="text-align:center;">
+      <div class="card-width" style="vertical-align: top; position:relative; display: inline-block; background:none; " id="container_3fd19a42">
+        <div style="margin: 10px; display: block; " id="container_3fd19a42_padding" >
+          <div style="text-align:center;">
+
+
+
+
+<div style="width:100%;">
+<canvas id="myChart2"></canvas>
+</div>
+
+
+
+
+              
+            </div>
+          <div style="clear:both"></div>
+          </div>
+        </div>
+      </div>
+    <div style="clear:both"></div>
+    </div>
+  </div>
+
+
+
+
+
+
+<script>
+var ctx = document.getElementById('myChart2');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [{% for dol in eurs %}{% for det in dets %}{% if det.materials == dol.materials and det.city == dol.city %}"{{dol.publish_date|date:"Y-m-d"}} || {{dol.whenpublished}}",{% endif %}{% endfor %}{% endfor %}],
+        datasets: [{
+            label: 'يورو',
+            data: [{% for dol in eurs %}{% for det in dets %}{% if det.materials == dol.materials and det.city == dol.city %}"{{dol.sell}}",{% endif %}{% endfor %}{% endfor %}],
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.2,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+<div style="vertical-align: top; position:relative; display: inline-block; width:100%; min-height:110px; background:none; " id="container_7b65bfd9">
+  <div style="margin: 10px; display: block; " id="container_7b65bfd9_padding" >
+    <div style="text-align:center;">
+      <div style="vertical-align: top; position:relative; display: inline-block; margin:30px 0px 0px 0px;width:100%; min-height:55px; background:none; " id="container_6a4e7890">
+        <div style="margin: 10px; display: block; " id="container_6a4e7890_padding" >
+          <div style="text-align:center;">
+            <span style="font-size:20pt; font-family:Arial, Helvetica, sans-serif; color:#222222; font-weight:bold; ">ليرة تركية</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div style="clear:both"></div>
+    </div>
+  </div>
+
+
+
+<div style="vertical-align: top; position:relative; display: inline-block; width:100%; min-height:150px; background:none; " id="container_39e796ac">
+  <div style="margin: 10px; display: block; " id="container_39e796ac_padding" >
+    <div style="text-align:center;">
+      <div class="card-width" style="vertical-align: top; position:relative; display: inline-block; background:none; " id="container_3fd19a42">
+        <div style="margin: 10px; display: block; " id="container_3fd19a42_padding" >
+          <div style="text-align:center;">
+
+
+
+
+<div style="width:100%;">
+<canvas id="myChart6"></canvas>
+</div>
+
+
+
+
+              
+            </div>
+          <div style="clear:both"></div>
+          </div>
+        </div>
+      </div>
+    <div style="clear:both"></div>
+    </div>
+  </div>
+
+
+
+
+
+
+<script>
+var ctx = document.getElementById('myChart6');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [{% for dol in turs %}{% for det in dets %}{% if det.materials == dol.materials and det.city == dol.city %}"{{dol.publish_date|date:"Y-m-d"}} || {{dol.whenpublished}}",{% endif %}{% endfor %}{% endfor %}],
+        datasets: [{
+            label: 'يورو',
+            data: [{% for dol in turs %}{% for det in dets %}{% if det.materials == dol.materials and det.city == dol.city %}"{{dol.sell}}",{% endif %}{% endfor %}{% endfor %}],
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.2,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+<div style="vertical-align: top; position:relative; display: inline-block; width:100%; min-height:110px; background:none; " id="container_7b65bfd9">
+  <div style="margin: 10px; display: block; " id="container_7b65bfd9_padding" >
+    <div style="text-align:center;">
+      <div style="vertical-align: top; position:relative; display: inline-block; margin:30px 0px 0px 0px;width:100%; min-height:55px; background:none; " id="container_6a4e7890">
+        <div style="margin: 10px; display: block; " id="container_6a4e7890_padding" >
+          <div style="text-align:center;">
+            <span style="font-size:20pt; font-family:Arial, Helvetica, sans-serif; color:#222222; font-weight:bold; ">ريال سعودي</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div style="clear:both"></div>
+    </div>
+  </div>
+
+
+
+<div style="vertical-align: top; position:relative; display: inline-block; width:100%; min-height:150px; background:none; " id="container_39e796ac">
+  <div style="margin: 10px; display: block; " id="container_39e796ac_padding" >
+    <div style="text-align:center;">
+      <div class="card-width" style="vertical-align: top; position:relative; display: inline-block;  background:none; " id="container_3fd19a42">
+        <div style="margin: 10px; display: block; " id="container_3fd19a42_padding" >
+          <div style="text-align:center;">
+
+
+
+
+<div style="width:100%;">
+<canvas id="myChart7"></canvas>
+</div>
+
+
+
+
+              
+            </div>
+          <div style="clear:both"></div>
+          </div>
+        </div>
+      </div>
+    <div style="clear:both"></div>
+    </div>
+  </div>
+
+
+
+
+
+
+<script>
+var ctx = document.getElementById('myChart7');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [{% for dol in saus %}{% for det in dets %}{% if det.materials == dol.materials and det.city == dol.city %}"{{dol.publish_date|date:"Y-m-d"}} || {{dol.whenpublished}}",{% endif %}{% endfor %}{% endfor %}],
+        datasets: [{
+            label: 'يورو',
+            data: [{% for dol in saus %}{% for det in dets %}{% if det.materials == dol.materials and det.city == dol.city %}"{{dol.sell}}",{% endif %}{% endfor %}{% endfor %}],
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.2,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="vertical-align: top; position:relative; display: inline-block; width:100%; min-height:110px; background:none; " id="container_7b65bfd9">
+  <div style="margin: 10px; display: block; " id="container_7b65bfd9_padding" >
+    <div style="text-align:center;">
+      <div style="vertical-align: top; position:relative; display: inline-block; margin:30px 0px 0px 0px;width:100%; min-height:55px; background:none; " id="container_6a4e7890">
+        <div style="margin: 10px; display: block; " id="container_6a4e7890_padding" >
+          <div style="text-align:center;">
+            <span style="font-size:20pt; font-family:Arial, Helvetica, sans-serif; color:#222222; font-weight:bold; ">الذهب</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div style="clear:both"></div>
+    </div>
+  </div>
+
+
+
+<div style="vertical-align: top; position:relative; display: inline-block; width:100%; min-height:150px; background:none; " id="container_39e796ac">
+  <div style="margin: 10px; display: block; " id="container_39e796ac_padding" >
+    <div style="text-align:center;">
+      <div class="card-width" style="vertical-align: top; position:relative; display: inline-block; background:none; " id="container_3fd19a42">
+        <div style="margin: 10px; display: block; " id="container_3fd19a42_padding" >
+          <div style="text-align:center;">
+
+
+
+
+<div style="width:100%;">
+<canvas id="myChart3"></canvas>
+</div>
+
+
+
+
+              
+            </div>
+          <div style="clear:both"></div>
+          </div>
+        </div>
+      </div>
+    <div style="clear:both"></div>
+    </div>
+  </div>
+
+
+
+
+
+
+<script>
+var ctx = document.getElementById('myChart3');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [{% for dol in gols %}{% for det in dets %}{% if det.materials == dol.materials and det.city == dol.city and det.score_for_gold == dol.score %}"{{dol.publish_date|date:"Y-m-d"}} || {{dol.whenpublished}}",{% endif %}{% endfor %}{% endfor %}],
+        datasets: [{
+            label: 'ذهب',
+            data: [{% for dol in gols %}{% for det in dets %}{% if det.materials == dol.materials and det.city == dol.city and det.score_for_gold == dol.score %}"{{dol.sell}}",{% endif %}{% endfor %}{% endfor %}],
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.2,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+</script>
+
+
+
+<div style="vertical-align: top; position:relative; display: inline-block; width:100%; min-height:110px; background:none; " id="container_7b65bfd9">
+  <div style="margin: 10px; display: block; " id="container_7b65bfd9_padding" >
+    <div style="text-align:center;">
+      <div style="vertical-align: top; position:relative; display: inline-block; margin:30px 0px 0px 0px;width:100%; min-height:55px; background:none; " id="container_6a4e7890">
+        <div style="margin: 10px; display: block; " id="container_6a4e7890_padding" >
+          <div style="text-align:center;">
+            <span style="font-size:20pt; font-family:Arial, Helvetica, sans-serif; color:#222222; font-weight:bold; ">مقارنة بين العملات</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div style="clear:both"></div>
+    </div>
+  </div>
+  
+
+
+
+<div style="vertical-align: top; position:relative; display: inline-block; width:100%; min-height:150px; background:none; " id="container_39e796ac">
+  <div style="margin: 10px; display: block; " id="container_39e796ac_padding" >
+    <div style="text-align:center;">
+      <div class="card-width2" style="vertical-align: top; position:relative; display: inline-block;  background:none; " id="container_3fd19a42">
+        <div style="margin: 10px; display: block; " id="container_3fd19a42_padding" >
+          <div style="text-align:center;">
+
+
+
+
+<div style="width:100%;">
+<canvas id="myChart4"></canvas>
+</div>
+
+
+
+
+              
+            </div>
+          <div style="clear:both"></div>
+          </div>
+        </div>
+      </div>
+    <div style="clear:both"></div>
+    </div>
+  </div>
+
+
+
+
+
+
+<script>
+var ctx = document.getElementById('myChart4');
+var myChart = new Chart(ctx, {
+    type: 'polarArea',
+    data: {
+        labels: [ 'دولار', 'يورو','ليرة تركية','ريال سعودي'],
+        datasets: [{
+            label: 'My First Dataset',
+            data: [{% for item in buy_list %}{{item}},{% endfor %}],
+            backgroundColor: [
+              'rgb(255, 99, 132)',
+              'rgb(75, 192, 192)',
+              'rgb(255, 205, 86)',
+              'rgb(54, 162, 235)',
+            ],
+            
+        }]
+    },
+    
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+</script>
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,267 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'web19202.css'%}">
+{% endblock %}
+
+{% block sheri %}
+
+
+<div style="vertical-align: top; position:relative; display: inline-block; width:100%; min-height:110px; background:none; " id="container_7b65bfd9">
+  <div style="margin: 10px; display: block; " id="container_7b65bfd9_padding" >
+    <div style="text-align:center;">
+      <div style="vertical-align: top; position:relative; display: inline-block; margin:30px 0px 0px 0px;width:100%; min-height:55px; background:none; " id="container_6a4e7890">
+        <div style="margin: 10px; display: block; " id="container_6a4e7890_padding" >
+          <div style="text-align:center;">
+            <span style="font-size:20pt; font-family:Arial, Helvetica, sans-serif; color:#222222; font-weight:bold; ">جميع الاسعار</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div style="clear:both"></div>
+    </div>
+  </div>
+
+
+
+
+
+
+<div style="vertical-align: top; position:relative; display: inline-block; width:100%; min-height:150px; background:none; " id="container_39e796ac">
+  <div style="margin: 10px; display: block; " id="container_39e796ac_padding" >
+    <div style="text-align:center;">
+      <div style="vertical-align: top; position:relative; display: inline-block; width:80%; min-height:300px; background:none; " id="container_3fd19a42">
+        <div style="margin: 10px; display: block; " id="container_3fd19a42_padding" >
+          <div style="text-align:center;">
+
+
+
+
+
+
+
+
+
+{% for card in cards|slice:":40" %}
+  {% if forloop.first %}
+  
+<!-- start cart -->
+
+<div style="vertical-align: top; position:relative; display: inline-block; width:530px; min-height:402px; background:none; " id="container_26be2b">
+  <div style="margin: 10px; display: block; " id="container_26be2b_padding" >
+    <div style="text-align:left;">
+        <div data-layer="19c830cc-56bf-4860-8344-bf938210a02b" class="web19202">        <div data-layer="b6b9c3a0-1ea5-4d86-a20c-17201bb93ae8" class="card">            <svg data-layer="d4dd239a-44ee-4e62-b553-3197f9760ebd" preserveAspectRatio="none" viewBox="-0.75 -0.7499999141242242 501.99951171875 300.499755859375" class="path1"><path d="M 15.01498603820801 8.587577582375161e-08 L 485.4845275878906 8.587577582375161e-08 C 493.777099609375 8.587577582375161e-08 500.4995727539062 6.693336963653564 500.4995727539062 14.94998645782471 L 500.4995727539062 284.0497436523438 C 500.4995727539062 292.3063659667969 493.777099609375 298.999755859375 485.4845275878906 298.999755859375 L 15.01498603820801 298.999755859375 C 6.722438335418701 298.999755859375 0 292.3063659667969 0 284.0497436523438 L 0 14.94998645782471 C 0 6.693336963653564 6.722438335418701 8.587577582375161e-08 15.01498603820801 8.587577582375161e-08 Z"  /></svg>
+            <svg data-layer="d7542ea4-3ed0-4530-a324-82194afa9d1c" preserveAspectRatio="none" viewBox="-9.5 -6.5 139.4732666015625 28" class="line1"><path d="M 0 0 L 114.4732666015625 0"  /></svg>
+            <div data-layer="9c921ce7-437f-46bd-b38b-ee1bdd78d773" class="rectangle2"></div>
+            <div data-layer="ab5dc5c8-edb3-4765-9a2a-9fbda251f32d" class="x21">{{card.name}}</div>
+            <div data-layer="2a1d767a-4edd-45ae-90d7-b813a468b028" class="x6f6690fe">{{card.city.name}}</div>
+            <div data-layer="646b7a2c-ade8-470b-844c-67c54e72c745" class="rectangle3"></div>
+            <div data-layer="31b75b28-5032-4130-bd73-54a288f1c514" class="x">{{ card.whenpublished }}</div>
+            <div data-layer="d0f42c33-f49d-4584-a70f-8f0065773163" class="x3000a03edc25">{{card.buy}}</div>
+            
+            <div data-layer="a0cd2ce2-7ae6-4352-a003-f3947f6cea30" class="x3000e75cf725">{{card.sell}}</div>
+            {% if result2.buy or result2.sell %}
+              <div data-layer="845d2e13-054f-4c47-9f5b-e8279f0b55d3" class="x3000d834dbcd">{{result2.buy}}</div>
+              <div data-layer="d1e211f3-a9c7-4ce8-9cc1-02d752efac66" class="x3000">{{result2.sell}}</div>
+              
+            {% else %}
+              <div data-layer="845d2e13-054f-4c47-9f5b-e8279f0b55d3" class="x3000d834dbcd">لا يوجد نتائج</div>
+              <div data-layer="d1e211f3-a9c7-4ce8-9cc1-02d752efac66" class="x3000">لا يوجد نتائج</div>
+            {% endif %}
+            {% if card.buy < result2.buy %}
+              <div data-layer="91d3d1d3-9c70-4254-99d0-16cd16769697" class="increase2" style="background:  url({% static '/assets/down.png'%}) center center/cover no-repeat;"></div>
+            {% else %}
+              <div data-layer="91d3d1d3-9c70-4254-99d0-16cd16769697" class="increase2" style="background:  url({% static '/assets/increase2.png'%}) center center/cover no-repeat;"></div>
+            {% endif %}
+            <div data-layer="02ab4cbd-6383-4b16-9cee-a9a72649c8d0" class="increase3"></div>
+            <svg data-layer="d3f15414-1aea-4125-8eb1-942d42de9f69" preserveAspectRatio="none" viewBox="-0.5 -0.0008544921875 1.250244140625 144.3897705078125" class="line2"><path d="M 0 0 L 0.250244140625 144.3880920410156"  /></svg>
+            <svg data-layer="990688f6-b884-403b-b5d8-00a00092d555" preserveAspectRatio="none" viewBox="-0.5 -0.0008544921875 1.250244140625 144.3897705078125" class="line9"><path d="M 0.250244140625 0 L 0 144.3880767822266"  /></svg>
+            <svg data-layer="8d6756ef-8003-42ff-98af-ced9dd2e771a" preserveAspectRatio="none" viewBox="-0.5 -0.0008544921875 1.250244140625 144.3897705078125" class="line7"><path d="M 0 0 L 0.250244140625 144.3880920410156"  /></svg>
+            <svg data-layer="3db2bcbc-7cc8-4d97-8624-977c718336dd" preserveAspectRatio="none" viewBox="-0.5 -0.0008544921875 1.250244140625 144.3897705078125" class="line11"><path d="M 0.250244140625 0 L 0 144.3880767822266"  /></svg>
+            <svg data-layer="aa2be203-bc5a-4988-80af-1d7375dd9d95" preserveAspectRatio="none" viewBox="-0.5 -0.0008544921875 1.250244140625 144.3897705078125" class="line8"><path d="M 0 0 L 0.250244140625 144.3880920410156"  /></svg>
+            <svg data-layer="faf99a03-333b-49b2-83f4-cb783a3db356" preserveAspectRatio="none" viewBox="-0.5 -0.0008544921875 1.250244140625 144.3897705078125" class="line10"><path d="M 0.250244140625 0 L 0 144.3880767822266"  /></svg>
+            <svg data-layer="1b72b787-0acf-4e5a-847a-e53e5229b7e8" preserveAspectRatio="none" viewBox="-9 -6.5 499.49951171875 28" class="line6"><path d="M 0 0 L 475.4995727539062 0"  /></svg>
+            <svg data-layer="5774331d-50fc-49b9-b388-4cfc3607feb3" preserveAspectRatio="none" viewBox="0 0 10 10" class="ellipse1"><path d="M 5 0 C 7.76142406463623 0 10 2.238576173782349 10 5 C 10 7.76142406463623 7.76142406463623 10 5 10 C 2.238576173782349 10 0 7.76142406463623 0 5 C 0 2.238576173782349 2.238576173782349 0 5 0 Z"  /></svg>
+            <svg data-layer="ab6bfd28-70bb-4095-9e50-b62e5a7ed313" preserveAspectRatio="none" viewBox="0 0 10 10" class="ellipse2"><path d="M 5 0 C 7.76142406463623 0 10 2.238576173782349 10 5 C 10 7.76142406463623 7.76142406463623 10 5 10 C 2.238576173782349 10 0 7.76142406463623 0 5 C 0 2.238576173782349 2.238576173782349 0 5 0 Z"  /></svg>
+</div>
+</div>
+      </div>
+    </div>
+  </div>
+
+<!-- end card -->
+  <br>
+  
+
+
+  <div class="calclator" style="vertical-align: top; position:relative; display: inline-block; width:100%; min-height:398px; background:none; " id="container_3e575098">
+    <div style="margin: 10px; display: block; " id="container_3e575098_padding" >
+      <div style="text-align:center;">
+        <div class="calcWidth" style="vertical-align: top; border-radius: 15px; position:relative; display: inline-block; margin:25px 0px 25px 0px; min-height:209px; background-color:#FFFFFF; " id="container_4f41ecfa">
+          <div style="text-align:center;">
+            <div style="vertical-align: top; position:relative; display: inline-block; margin:4px 0px 0px 0px;width:67%; min-height:41px; background:none; " id="container_3b77e554">
+              <div style="margin: 10px; display: block; " id="container_3b77e554_padding" >
+                <div style="text-align:center;">
+                  <span style="font-size:13pt; font-family:Arial, Helvetica, sans-serif; color:#000000; font-weight:bold; text-shadow: 2px 2px 5px #000000; ">محاسبة</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div style="text-align:left;">
+            <div style="box-sizing: border-box; vertical-align: top; position:relative; display: inline-block; width:100%; min-height:47px; background-color:#F1F1F1; border-top: none; border-left: 4px solid #FEFFFE; border-right: 4px solid #FFFFFF; border-bottom: none; " id="container_7c36b3fb">
+              <div style="text-align:center;">
+                <div style="vertical-align: top; position:relative; display: inline-block; margin:0px 20px 0px 0px;width:25%; min-height:40px; background:none; " id="container_7e822e07">
+                  <div style="margin: 10px; display: block; " id="container_7e822e07_padding" >
+                    <div style="text-align:left;">
+  <input id="buy" name="RadioButton1" type="radio" value="" title="" checked="checked"  style="vertical-align: bottom; position:relative; display: inline-block; width:20px; height:20px; " id="radiobutton_6d14fdfd" >
+                      <span class="type" style=" font-family:Arial, Helvetica, sans-serif; color:#000000; ">شراء</span>
+                      </div>
+                    <div style="clear:both"></div>
+                    </div>
+                  </div>
+                <div style="vertical-align: top; position:relative; display: inline-block; margin:0px 0px 0px 20px;width:21%; min-height:40px; background:none; " id="container_169edec1">
+                  <div style="margin: 10px; display: block; " id="container_169edec1_padding" >
+                    <div style="text-align:left;">
+  <input id="sell" name="RadioButton1" type="radio" value="" title="" checked="checked"  style="vertical-align: bottom; position:relative; display: inline-block; width:20px; height:20px; " id="radiobutton_1d02c053" >
+                      <span style=" font-family:Arial, Helvetica, sans-serif; color:#000000; ">بيع</span>
+                      </div>
+                    <div style="clear:both"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div style="vertical-align: top; position:relative; display: inline-block; width:100%; min-height:133px; background:none; " id="container_64485fad">
+              <div style="margin: 0px 10px 0px 10px;display: block; " id="container_64485fad_padding" >
+                <div style="text-align:left;">
+                  <div style="vertical-align: top; position:relative; display: inline-block; width:100%; min-height:152px; background:none; " id="container_1f6374ba">
+                    <div style="margin: 10px 10px 0px 10px;display: block; " id="container_1f6374ba_padding" >
+                      <div style="text-align:center;">
+  <input class="p-sm-1 p-md-4" id="input1" type="text" value="" title="" name="input1"  placeholder="ادخل القيمة" required="required" maxlength="9" style="box-sizing: border-box; vertical-align: bottom; border-radius: 15px; position:relative; display: inline-block; margin:5px 15px 5px 10px;width:230px; height:30px; background-color:#F1F1F1; border: 1px solid #A0A0A0;  font-family:Arial, Helvetica, sans-serif; color:#000000; text-align:center;" id="edit_4cfbf672" >
+                        </div>
+                      <div style="text-align:left;">
+                        <div style="vertical-align: top; position:relative; display: inline-block; margin:2px 0px 2px 0px;width:100%; min-height:44px; background:none; " id="container_27ce7d7c">
+                          <div style="margin: 4px 10px 4px 10px;display: block; " id="container_27ce7d7c_padding" >
+                            <div style="text-align:center;">
+                              <div style="vertical-align: top; position:relative; display: inline-block; width:90%; min-height:49px; background-color:#F1F1F1; " id="container_4081172c">
+                                <div style="margin: 10px; display: block; " id="container_4081172c_padding" >
+                                  <div style="text-align:center;">
+                                    <span> النتيجة: </span><span id="result" class="calcResult" style=" font-family:Arial, Helvetica, sans-serif; color:#000000; "></span><span> ل.س</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            <div style="clear:both"></div>
+                            </div>
+                          </div>
+                        </div>
+                      <div style="text-align:center;">
+  <input name="احسب" onclick="getvalue()" type="submit" value="احسب" title=""  style="box-sizing: border-box; vertical-align: bottom; border-radius: 1px; position:relative; display: inline-block; width:137px; height:35px; background-color:#F2F2F2; border: 1px solid #3A363B;  font-family:Arial, Helvetica, sans-serif; color:#383041; " id="button_52c2f018" >
+                        </div>
+                      <div style="clear:both"></div>
+                      </div>
+                    </div>
+                  </div>
+                <div style="clear:both"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div style="clear:both"></div>
+      </div>
+    </div>
+  
+
+
+
+
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">الاسم</th>
+      <th scope="col">المدينة</th>
+      <th scope="col">سعر الشراء</th>
+      <th scope="col">سعر البيع</th>
+      <th scope="col">تم النشر</th>
+      <th scope="col">تاريخ</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  {% else %}
+
+
+        <tr>
+          <th scope="row">{{forloop.counter}}</th>
+          <td>{{card.name}}</td>
+          <td>{{card.city.name}}</td>
+          <td>{{card.buy}}</td>
+          <td>{{card.sell}}</td>
+          <td>{{ card.whenpublished }}</td>
+          <td>{{card.publish_date|date:"Y/m/d"}}</td>
+        </tr>
+
+
+  {% endif %}
+
+
+  {%empty%}
+  <h1> لا يوجد نتائج لعرضه </h1>
+{% endfor %}
+      </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+              
+            </div>
+          <div style="clear:both"></div>
+          </div>
+        </div>
+      </div>
+    <div style="clear:both"></div>
+    </div>
+  </div>
+
+
+
+<script>
+  function getvalue(){
+    if (document.getElementById("input1").value != ''){
+      if(document.getElementById("sell").checked){
+
+        var card = {{cards.0.sell}};
+        var a = document.getElementById("input1").value;
+        var result = card * a;
+        document.getElementById("result").innerHTML =result ;
+        console.log(card, document.getElementById("sell").checked);
+
+      };
+      if (document.getElementById("input1").value != ''){
+        if(document.getElementById("buy").checked){
+
+          var card = {{cards.0.buy}};
+          var a = document.getElementById("input1").value;
+          result = card * a;
+          document.getElementById("result").innerHTML = result ;
+          console.log(card, document.getElementById("buy").checked);
+        };
+      };
+    };
+  };
+
+
+</script>
+
+
+{% endblock %}
