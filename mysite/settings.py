@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'cloudinary_storage',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -121,14 +124,25 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 MEDIA_URL = '/media/'
+#MEDIA_ROOT = BASE_DIR / "media"
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "mysite/static"]
 STATIC_ROOT = BASE_DIR / "static"
 
-MEDIA_ROOT = BASE_DIR / "media"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SEND_EMAIL_URL = 'https://aleumla.herokuapp.com/'
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'aleumla',
+    'API_KEY': '563797935353799',
+    'API_SECRET': 'jv3-1_rv-s0wmnwwRNImvYwSWzY'
+}
